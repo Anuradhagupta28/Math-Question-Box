@@ -6,15 +6,18 @@ export default function LatexConverter() {
     loader: { load: ["input/asciimath"] }
   };
 
-  // const [latexInput, setLatexInput] = useState("");
+  const [latexInput, setLatexInput] = useState("");
+  useEffect(()=>{
+   
+  },[latexInput])
 
-  // const handleInputChange = (e) => {
-  //   setLatexInput(e.target.value);
-  // };
-  // console.log(latexInput);
+  const handleInputChange = (e) => {
+    setLatexInput(e.target.value);
+  };
+  console.log(latexInput);
 
-  const latexInput =
-    'If $A=2 x-y+3 x y, B=x+2 x y$ and $C=3 y+x y$, find the value of  $$\\mathrm{A}+\\mathrm{B}+\\mathrm{C}$$ , $a^2$ ';
+  // const latexInput =
+  //   'If $A=2 x-y+3 x y, B=x+2 x y$ and $C=3 y+x y$, find the value of  $$\\mathrm{A}+\\mathrm{B}+\\mathrm{C}$$ , $a^2$ ';
 
   const regex = /\$\s*([^$]+?)\s*\$|\$\$\s*([^$]+?)\s*\$\$/g;
 
@@ -50,13 +53,13 @@ export default function LatexConverter() {
   return (
     <MathJaxContext config={config}>
       <h2>Displaying LaTeX Equations</h2>
-      {/* <textarea
+      <textarea
         value={latexInput}
         placeholder="Write your equations (each on a new line)"
         onChange={handleInputChange}
         rows={5}
         cols={50}
-      /> */}
+      />
       
       {renderMath()}
     </MathJaxContext>
