@@ -29,7 +29,6 @@ export default function LatexConverter() {
     const htmlMatches = latexInput.match(htmlRegex) || [];
     const sanitizedLatex = latexInput.replace(htmlRegex, '');
 
-    // Exclude <br> tags from htmlContent
     const filteredHtmlMatches = htmlMatches.filter(
       (tag) => tag.toLowerCase() !== '<br>'
     );
@@ -44,11 +43,11 @@ export default function LatexConverter() {
     <MathJaxContext config={config}>
       <h2>Displaying LaTeX Equations and HTML Content</h2>
       <textarea
-        value={latexInput}
-        placeholder="Write your equations and HTML content"
-        onChange={handleInputChange}
         rows={10}
         cols={50}
+        value={latexInput}
+        onChange={handleInputChange}
+        placeholder="Write your equations and HTML content"
       />
 
       <div>
